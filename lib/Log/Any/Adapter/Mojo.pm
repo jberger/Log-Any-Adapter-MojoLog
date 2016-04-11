@@ -34,24 +34,6 @@ foreach my $method ( Log::Any->logging_methods ) {
         $method,
         sub {
             my $self = shift;
-            my ( $pkg, $line ) = ( caller() )[ 0, 2 ];
-
-            # Quick and dirty hack to get correct package and line number
-            # into log line.
-            no warnings;
-
-            my $old_syswrite = *{*IO::Handle::syswrite}{CODE};
-            local *IO::Handle::syswrite = sub {
-                my $self = shift;
-                my $l    = shift;
-
-                $l =~ s/Log::Any::Adapter::Mojo:\d+/\Q$pkg\E:\Q$line\E/;
-                $l =~ s/Mojo::EventEmitter:\d+/\Q$pkg\E:\Q$line\E/;
-                $l =~ s/Mojo::Log:\d+/\Q$pkg\E:\Q$line\E/;
-
-                return $self->$old_syswrite( $l, @_ );
-            };
-
             return $self->{logger}->$mojo_method(@_);
         }
     );

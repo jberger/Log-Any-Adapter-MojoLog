@@ -12,7 +12,7 @@ WriteMakefile(
     VERSION_FROM => 'lib/Log/Any/Adapter/Mojo.pm',
     AUTHOR       => 'Henry Tang <henryykt@gmail.com>',
     PREREQ_PM    => {
-        'Mojolicious'       => '1.13',
+        'Mojolicious'       => '2.15', # Mojo::Log message event
         'Log::Any::Adapter' => '0.07',
         'Log::Any'          => '0.14'
     },
