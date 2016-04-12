@@ -1,5 +1,5 @@
 {
-   "license" : [ "perl_5" ],
+   "license" : [ "artistic_2" ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
@@ -11,6 +11,6 @@
       "bugtracker" : {
          "web" : "http://github.com/jberger/Log-Any-Adapter-MojoLog/issues"
       },
-      "license" : [ "artistic_2" ]
+      "license" : [ "https://opensource.org/licenses/artistic-license-2.0" ]
    }
 }

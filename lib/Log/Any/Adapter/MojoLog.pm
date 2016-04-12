@@ -3,7 +3,7 @@ package Log::Any::Adapter::MojoLog;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 use Log::Any::Adapter::Util qw(make_method);
