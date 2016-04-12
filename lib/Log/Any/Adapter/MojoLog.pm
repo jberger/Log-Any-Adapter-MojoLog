@@ -83,7 +83,7 @@ __END__
 
 =head1 NAME
 
-Log::Any::Adapter::MojoLog
+Log::Any::Adapter::MojoLog - Log::Any integration for Mojo::Log
 
 =head1 SYNOPSIS
 
@@ -167,16 +167,14 @@ Copyright (C) 2011 Henry Tang
 
 and is licensed under the Artistic License version 2.0
 
-This fork began as fixes for L<RT#11163|1https://rt.cpan.org/Public/Bug/Display.html?id=111631> and L<RT#101167|https://rt.cpan.org/Public/Bug/Display.html?id=101167>.
+This fork began as fixes for L<RT#111631|https://rt.cpan.org/Public/Bug/Display.html?id=111631> and L<RT#101167|https://rt.cpan.org/Public/Bug/Display.html?id=101167>.
 However the eventual changes that were made prevented any possibility for keeping a consistent log formatter.
 As such I think it is the responsible action to fork the module to release it.
 I intend to work with the original author to see how much of these changes can be backported into that codebase without breaking the format.
 
 =head1 COPYRIGHT & LICENSE
 
-Log::Any::Adapter::MojoLog is
-
-Copyright (C) 2016 Joel Berger
+Log::Any::Adapter::MojoLog is Copyright (C) 2016 Joel Berger
 
 Log::Any::Adapter::MojoLog is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied warranties
