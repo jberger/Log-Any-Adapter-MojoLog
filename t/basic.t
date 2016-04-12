@@ -3,20 +3,10 @@
 use strict;
 use warnings;
 
-use File::Basename 'dirname';
-use File::Spec;
-
-use lib join '/', File::Spec->splitdir( dirname(__FILE__) ), '..', 'lib';
-
-use Data::Dumper;
 use Mojolicious;
-use Test::More tests => 28;
-use Test::Mojo;
+use Test::More;
 
-use File::Temp qw{ tempfile tmpnam };
-
-use_ok 'Log::Any::Adapter::Mojo';
-
+use Log::Any::Adapter::MojoLog;
 use Log::Any qw($log);
 
 my $mojo_log = Mojo::Log->new;
@@ -26,7 +16,7 @@ $mojo_log->on(message => sub {
   shift;
   push @messages, [@_];
 });
-Log::Any->set_adapter( 'Mojo', logger => $mojo_log );
+Log::Any->set_adapter( 'MojoLog', logger => $mojo_log );
 
 $ENV{MOJO_LOG_LEVEL} = 'debug';
 
@@ -71,5 +61,5 @@ sub _test_log {
   is_deeply $messages[-1], [$target_level, $msg], $label;
 }
 
-1;
+done_testing;
 

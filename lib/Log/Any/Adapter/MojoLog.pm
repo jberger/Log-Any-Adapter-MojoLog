@@ -1,11 +1,11 @@
-package Log::Any::Adapter::Mojo;
-
-BEGIN {
-    $Log::Any::Adapter::Mojo::VERSION = '0.06';
-}
+package Log::Any::Adapter::MojoLog;
 
 use strict;
 use warnings;
+
+our $VERSION = '0.01';
+$VERSION = eval $VERSION;
+
 use Log::Any::Adapter::Util qw(make_method);
 use base qw(Log::Any::Adapter::Base);
 
@@ -83,14 +83,14 @@ __END__
 
 =head1 NAME
 
-Log::Any::Adapter::Mojo
+Log::Any::Adapter::MojoLog
 
 =head1 SYNOPSIS
 
     use Mojo::Log;
     use Log::Any::Adapter;
 
-    Log::Any::Adapter->set('Mojo', logger => Mojo::Log->new);
+    Log::Any::Adapter->set('MojoLog', logger => Mojo::Log->new);
 
 Mojolicious app:
 
@@ -101,7 +101,7 @@ Mojolicious app:
     sub startup {
         my $self = shift;
 
-        Log::Any::Adapter->set('Mojo', logger => $self->app->log);
+        Log::Any::Adapter->set('MojoLog', logger => $self->app->log);
     }
 
 Mojolicious::Lite app:
@@ -110,11 +110,11 @@ Mojolicious::Lite app:
 
     use Log::Any::Adapter;
 
-    Log::Any::Adapter->set('Mojo', logger => app->log);
+    Log::Any::Adapter->set('MojoLog', logger => app->log);
 
 =head1 DESCRIPTION
 
-This Log::Any adapter uses L<Mojo::Log|Mojo::Log> for logging. Mojo::Log must
+This Log::Any adapter uses L<Mojo::Log> for logging. Mojo::Log must
 be initialized before calling I<set>. The parameter logger must
 be used to pass in the logging object.
 
@@ -131,18 +131,54 @@ Log levels are translated from Log::Any to Mojo::Log as follows:
 
 =head1 SEE ALSO
 
-L<Log::Any|Log::Any>, L<Log::Any::Adapter|Log::Any::Adapter>,
-L<Mojo::Log|Mojo::Log>
+=over
+
+=item *
+
+L<Log::Any::Adapter::Mojo> - The original release of this codebase
+
+=item *
+
+L<Log::Any>
+
+=item *
+
+L<Log::Any::Adapter>
+
+=item *
+
+L<Mojo::Log>
+
+=back
+
+=head1 SOURCE REPOSITORY
+
+L<http://github.com/jberger/Log-Any-Adapter-MojoLog>
 
 =head1 AUTHOR
 
-Henry Tang
+Joel Berger, E<lt>joel.a.berger@gmail.comE<gt>
 
-=head1 COPYRIGHT & LICENSE
+=head1 NOTES
+
+This module was forked from L<Log::Any::Adapter::Mojo> which bears the copyright
 
 Copyright (C) 2011 Henry Tang
 
-Log::Any::Adapter::Mojo is provided "as is" and without any express or
+and is licensed under the Artistic License version 2.0
+
+This fork began as fixes for L<RT#11163|1https://rt.cpan.org/Public/Bug/Display.html?id=111631> and L<RT#101167|https://rt.cpan.org/Public/Bug/Display.html?id=101167>.
+However the eventual changes that were made prevented any possibility for keeping a consistent log formatter.
+As such I think it is the responsible action to fork the module to release it.
+I intend to work with the original author to see how much of these changes can be backported into that codebase without breaking the format.
+
+=head1 COPYRIGHT & LICENSE
+
+Log::Any::Adapter::MojoLog is
+
+Copyright (C) 2016 Joel Berger
+
+Log::Any::Adapter::MojoLog is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied warranties
 of merchantibility and fitness for a particular purpose.
 

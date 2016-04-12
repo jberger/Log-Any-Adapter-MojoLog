@@ -8,9 +8,9 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME         => 'Log::Any::Adapter::Mojo',
-    VERSION_FROM => 'lib/Log/Any/Adapter/Mojo.pm',
-    AUTHOR       => 'Henry Tang <henryykt@gmail.com>',
+    NAME         => 'Log::Any::Adapter::MojoLog',
+    VERSION_FROM => 'lib/Log/Any/Adapter/MojoLog.pm',
+    AUTHOR       => 'Joel Berger <joel.a.berger@gmail.com>',
     PREREQ_PM    => {
         'Mojolicious'       => '2.15', # Mojo::Log message event
         'Log::Any::Adapter' => '0.07',
