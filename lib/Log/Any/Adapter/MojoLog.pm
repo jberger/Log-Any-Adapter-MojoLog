@@ -59,7 +59,7 @@ foreach my $method ( Log::Any->detection_methods ) {
     if ($mojo_method eq 'is_fatal') {
       # is_fatal has been removed since 6.0, it was always true
       $mojo_method = $true;
-    } elsif ($Mojolicious::VERSION >= 6.47) {
+    } elsif (eval { require Mojolicious; Mojolicious->VERSION('6.47'); 1 }) {
       # as of 6.47 the is_* methods have been removed in favor of
       # is_level($level)
       ($level = $mojo_method) =~ s/^is_//;
