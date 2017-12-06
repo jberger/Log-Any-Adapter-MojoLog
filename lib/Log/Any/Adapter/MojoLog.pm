@@ -9,6 +9,7 @@ $VERSION = eval $VERSION;
 use Log::Any::Adapter::Util qw(make_method);
 use base qw(Log::Any::Adapter::Base);
 
+use Mojolicious;
 use Mojo::Log;
 
 sub init {
