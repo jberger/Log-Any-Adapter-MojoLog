@@ -39,9 +39,9 @@ be used to pass in the logging object.
 
 =head1 LOG LEVEL TRANSLATION
 
-Log levels are translated from Log::Any to Mojo::Log as follows:
+Log level which are not exectly the same are translated from Log::Any
+to Mojo::Log as follows:
 
-    trace -> debug
     notice -> info
     warning -> warn
     critical -> fatal
